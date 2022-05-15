@@ -25,12 +25,6 @@
         "projects": "dependencies"
       }
     ],
-    "typecheck": [
-      {
-        "target": "build",
-        "projects": "self"
-      }
-    ],
     "test": [
       {
         "target": "build",

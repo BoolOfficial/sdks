@@ -35,7 +35,7 @@
     "build": "pnpm ts-declaration && node scripts/build.js",
     "test": "jest --config ./jest.config.cjs --passWithNoTests",
     "lint": "eslint . --ext .ts,.tsx --max-warnings 0 --debug",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && echo \"Checked types for sdk-js\" "
   },
   "dependencies": {
     "cross-fetch": "^3.1.5"

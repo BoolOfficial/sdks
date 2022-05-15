@@ -1,0 +1,46 @@
+{
+  "name": "@usebool/sdk-react",
+  "version": "0.2.3",
+  "type": "module",
+  "description": "React SDK for Bool feature flag system",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.module.js",
+  "source": "./src/index.ts",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoolOfficial/sdks.git"
+  },
+  "keywords": [
+    "bool",
+    "usebool",
+    "react",
+    "feature flags",
+    "feature toggles",
+    "client"
+  ],
+  "author": "Bool <hello@usebool.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BoolOfficial/sdks/issues"
+  },
+  "homepage": "https://usebool.com",
+  "scripts": {
+    "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
+    "build": "yarn ts-declaration && node scripts/build.js",
+    "test": "jest --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@usebool/sdk-js": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.9"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  }
+}

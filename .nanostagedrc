@@ -1,0 +1,6 @@
+{
+  "*.{ts,tsx,json}": [
+    "pnpm lint:all",
+    "prettier --write"
+  ]
+}

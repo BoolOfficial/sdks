@@ -32,13 +32,16 @@
     "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
     "build": "yarn ts-declaration && node scripts/build.js",
     "test": "jest --passWithNoTests",
+    "lint": "eslint . --ext .ts,.tsx --max-warnings 0 --debug",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@usebool/sdk-js": "workspace:*"
   },
   "devDependencies": {
-    "@types/react": "^18.0.9"
+    "@types/react": "^18.0.9",
+    "eslint": "^8.15.0",
+    "eslint-plugin-react": "^7.29.4"
   },
   "peerDependencies": {
     "react": ">=17.0.0"

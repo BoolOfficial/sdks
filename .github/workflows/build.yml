@@ -42,3 +42,11 @@ jobs:
 
       - name: Run tests
         run: pnpm test:all
+
+  build-finished:
+    runs-on: ubuntu-latest
+    needs: [build-and-test]
+    if: always() && needs.build-and-test.result == 'success'
+    steps:
+      - name: Trace
+        run: echo "Test and build finished successfully"

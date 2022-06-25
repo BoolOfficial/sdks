@@ -1,6 +1,6 @@
 {
   "name": "@usebool/sdk-vue",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "description": "Vue SDK for Bool feature flag system",
   "exports": "./lib/index.js",

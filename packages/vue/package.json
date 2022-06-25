@@ -3,9 +3,6 @@
   "version": "0.2.0",
   "type": "module",
   "description": "Vue SDK for Bool feature flag system",
-  "engines": {
-    "node": ">=14.16"
-  },
   "exports": "./lib/index.js",
   "files": [
     "lib",
@@ -31,22 +28,23 @@
   "homepage": "https://usebool.com",
   "scripts": {
     "prebuild": "rimraf lib",
-    "build": "tsc --declaration --outDir lib",
+    "build": "tsc --declaration --outDir lib && echo 'Vue build complete'",
     "test": "jest --passWithNoTests",
     "lint": "eslint --fix --max-warnings 0 --ext .js,.ts,.vue .",
     "typecheck": "tsc --noEmit && echo \"Checked types for sdk-vue\" "
   },
+  "dependencies": {
+    "@usebool/sdk-js": "workspace:*"
+  },
   "devDependencies": {
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vue/tsconfig": "^0.1.3",
-    "@usebool/sdk-js": "workspace:*",
     "eslint": "^8.15.0",
     "eslint-plugin-vue": "^9.0.1",
     "rimraf": "^3.0.2",
     "vue": "^3.2.35"
   },
   "peerDependencies": {
-    "@usebool/sdk-js": "^0.2.0",
     "vue": ">=3.0.0"
   }
 }

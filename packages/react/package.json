@@ -30,7 +30,7 @@
   "homepage": "https://usebool.com",
   "scripts": {
     "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
-    "build": "pnpm ts-declaration && node scripts/build.js",
+    "build": "pnpm ts-declaration && node scripts/build.js && echo 'React build complete'",
     "test": "jest --passWithNoTests",
     "lint": "eslint . --ext .ts,.tsx --max-warnings 0 --debug",
     "typecheck": "tsc --noEmit && echo \"Checked types for sdk-react\" "

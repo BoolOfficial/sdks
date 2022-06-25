@@ -16,14 +16,14 @@ export class FeatureFlagProvider extends React.Component<ProviderProps> {
   }
 
   initializeClient = async () => {
-    const { applicationId } = this.props;
+    const { idToken } = this.props;
     const { client } = this.state;
 
     if (client) {
       const featureValues = await client.getFeatures();
       this.setState({ flags: featureValues });
     } else {
-      const initializedClient = bool({ appId: applicationId });
+      const initializedClient = bool({ idToken });
       const featureValues = await initializedClient.getFeatures();
       this.setState({ flags: featureValues, client: initializedClient });
     }

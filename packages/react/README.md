@@ -28,18 +28,18 @@ yarn add @usebool/sdk-react
 pnpm install @usebool/sdk-react
 ```
 
-To use the JavaScript SDK, you will need the application key. This key will be provided in the bool dashboard and it is not a secret, meaning that there is no danger in exposing it in your client-side code.
+To use the JavaScript SDK, you will need the an id token. This token will be provided in the bool dashboard and it is not a secret, meaning that there is no danger in exposing it in your client-side code.
 
 ### SDK usage
 
-You will wrap you application with our main provider component named `FeatureFlagProvider`. This component requires an `applicationId` property used for the initialization of the SDK.
+You will wrap you application with our main provider component named `FeatureFlagProvider`. This component requires an `idToken` property used for the initialization of the SDK.
 
 ```js
 import { FeatureFlagProvider } from '@usebool/sdk-react';
 
 function App() {
   return (
-    <FeatureFlagProvider applicationId="c80f32fe-6f50-42c5-bb7d-9e78a46935da">
+    <FeatureFlagProvider idToken="c80f32fe6f5042c5bb7d9e78a46935da">
       <div className="App">
           <Header />
           <Content />
@@ -82,7 +82,7 @@ import { FeatureFlagProvider } from "@usebool/sdk-react";
 function App() {
   return (
     <FeatureFlagProvider 
-      applicationId="57847459-d4a8-4a88-8809-fc50b74f89d6"
+      idToken="57847459-d4a8-4a88-8809-fc50b74f89d6"
     >
       <div className="App">
           <Header />
@@ -138,7 +138,7 @@ type FeatureFlag = {
 };
 
 type ProviderProps = {
-  applicationId: string;
+  idToken: string;
   children: React.ReactElement | React.ReactElement[];
 };
 ```

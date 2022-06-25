@@ -1,7 +1,7 @@
 import { BoolClient, FeatureFlag } from '@usebool/sdk-js';
 
 export type ProviderProps = {
-  applicationId: string;
+  idToken: string;
   children: React.ReactElement | React.ReactElement[];
 };
 

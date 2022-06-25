@@ -22,6 +22,7 @@
   "scripts": {
     "postinstall": "npx husky install",
     "nx": "nx",
+    "build:all": "nx run-many --target=build --all",
     "lint:all": "nx run-many --target=lint --all",
     "test:all": "nx run-many --target=test --all",
     "test:affected": "nx affected --target=test",

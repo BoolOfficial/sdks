@@ -1,7 +1,7 @@
 {
   "*.{ts,tsx,json}": [
     "pnpm lint:all",
-    "pnpm typecheck:affected",
+    "pnpm typecheck:all",
     "prettier --write"
   ]
 }

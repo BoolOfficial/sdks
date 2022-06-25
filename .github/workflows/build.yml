@@ -9,41 +9,13 @@ on:
   pull_request:
 
 jobs:
-  # Get branch info
-  branch-info:
-    runs-on: ubuntu-latest
-    steps:
-      # Get current branch name
-      - name: Get branch name
-        id: branch-name
-        uses: tj-actions/branch-names@v5.2
-      # Get base branch name to compare with. Base branch on a PR, "main" branch on pushing.
-      - name: Get base branch name
-        id: get-base-branch-name
-        run: |
-          if [[ "${{github.event.pull_request.base.ref}}" != "" ]]; then
-            echo "::set-output name=branch::${{github.event.pull_request.base.ref}}"
-          else
-            echo "::set-output name=branch::main"
-          fi
-    outputs:
-      # Export the branch names as output to be able to use it in other jobs
-      base-branch-name: ${{ steps.get-base-branch-name.outputs.branch }}
-      branch-name: ${{ steps.branch-name.outputs.current_branch }}
-
-  get-affected:
-    needs: [branch-info]
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       # Check out the repository
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      # Configure Nx to be able to detect changes between branches when we are in a PR
-      - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
-        with:
-          main-branch-name: ${{needs.branch-info.outputs.base-branch-name}}
       # Install Pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.1
@@ -58,3 +30,15 @@ jobs:
       # Install workspace dependencies
       - name: Install dependencies
         run: pnpm install
+
+      - name: Run linter
+        run: pnpm lint:all
+
+      - name: Run typecheck
+        run: pnpm typecheck:all
+
+      - name: Run builds
+        run: pnpm build:all
+
+      - name: Run tests
+        run: pnpm test:all

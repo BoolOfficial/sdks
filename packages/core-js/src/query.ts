@@ -2,6 +2,18 @@ import fetch from 'cross-fetch';
 
 const URL = 'https://api.usebool.com/v1/graphql';
 
+export const GET_FEATURE_FLAGS_QUERY = `
+query GetFeatureFlags {
+  Bool_FeatureFlag(where: {order_by: {name: asc}) {
+    id
+    key
+    name
+    value
+    description
+  }
+}
+`;
+
 export const query = async <Data>(
   queryString: string,
   operationName: string,

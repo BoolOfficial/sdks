@@ -1,22 +1,10 @@
-import { query } from './query';
+import { query, GET_FEATURE_FLAGS_QUERY } from './query';
 import type { FeatureFlag, FeatureFlagList } from './types';
-
-const GET_ALL_FEATURE_FLAGS_QUERY = `
-  query GetFeatureFlagsByID($appId: uuid = "", $order_by: [Bool_FeatureFlag_order_by!] = {created_at: asc})  {
-    Bool_FeatureFlag(where: {applicationId: {_eq: $appId}}, order_by: $order_by) {
-      id
-      key
-      name
-      value
-      description
-    }
-  }
-`;
 
 export const hasFeature = async (idToken: string, key: FeatureFlag['key']) => {
   const { data } = await query<FeatureFlagList>(
-    GET_ALL_FEATURE_FLAGS_QUERY,
-    'GetFeatureFlagsByID',
+    GET_FEATURE_FLAGS_QUERY,
+    'GetFeatureFlags',
     idToken,
   );
 

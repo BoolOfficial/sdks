@@ -5,8 +5,7 @@
   "description": "Vue SDK for Bool feature flag system",
   "exports": "./lib/index.js",
   "files": [
-    "lib",
-    "src"
+    "lib"
   ],
   "repository": {
     "type": "git",

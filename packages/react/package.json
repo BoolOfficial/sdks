@@ -1,6 +1,6 @@
 {
   "name": "@usebool/sdk-react",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "type": "module",
   "description": "React SDK for Bool feature flag system",
   "main": "./lib/index.cjs",

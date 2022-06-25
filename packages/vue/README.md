@@ -28,7 +28,7 @@ yarn add @usebool/sdk-vue
 pnpm install @usebool/sdk-vue
 ```
 
-To use the JavaScript SDK, you will need the application key. This key will be provided in the bool dashboard and it is not a secret, meaning that there is no danger in exposing it in your client-side code.
+To use the JavaScript SDK, you will need an application token. This token will be provided in the bool dashboard and it is not a secret, meaning that there is no danger in exposing it in your client-side code.
 
 ### SDK usage
 
@@ -37,7 +37,7 @@ Before consuming feature flags, you need to initialise the Bool client. You can 
 ```ts
 import boolClient from '@usebool/sdk-vue';
 
-boolClient({ appId: YOUR_APP_ID });
+boolClient({ idToken: YOUR_ID_TOKEN });
 ```
 
 You are now left with fetching feature flags where you have two options.
@@ -77,7 +77,7 @@ In case the feature flag cannot be found, the function will log an error saying 
 <script lang="ts" setup>
 import boolClient from '@usebool/sdk-vue';
 
-boolClient({ appId: YOUR_APP_ID });
+boolClient({ idToken: YOUR_APP_ID });
 </script>
 
 // Header.vue

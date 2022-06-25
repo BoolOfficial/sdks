@@ -13,11 +13,11 @@ const GET_ALL_FEATURE_FLAGS_QUERY = `
   }
 `;
 
-export const hasFeature = async (appId: string, key: FeatureFlag['key']) => {
+export const hasFeature = async (idToken: string, key: FeatureFlag['key']) => {
   const { data } = await query<FeatureFlagList>(
     GET_ALL_FEATURE_FLAGS_QUERY,
     'GetFeatureFlagsByID',
-    appId,
+    idToken,
   );
 
   return getSingleFlagValue(data as FeatureFlagList, key);

@@ -11,7 +11,7 @@ export type FeatureFlagList = {
 };
 
 export type ClientConfig = {
-  appId: string;
+  idToken: string;
 };
 
 export type BoolClient = {

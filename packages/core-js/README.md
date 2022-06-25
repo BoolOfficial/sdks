@@ -35,7 +35,7 @@ To use the JavaScript SDK, you will need the application key. This key will be p
 ```js
 import bool from '@usebool/sdk-js';
 
-const boolClient = bool({ appId: YOUR_APP_KEY });
+const boolClient = bool({ idToken: YOUR_ID_TOKEN });
 ```
 
 You are now left with fetching feature flags where you have two options. After initialization, the client exposes two functions that each in turn return a Promise: `hasFeature` and `getFeatures`.
@@ -79,7 +79,7 @@ type BoolClient = {
 };
 
 type ClientConfig = {
-  appId: string;
+  idToken: string;
 };
 
 type FeatureFlag = {

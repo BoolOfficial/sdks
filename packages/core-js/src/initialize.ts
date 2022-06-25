@@ -5,12 +5,12 @@ import { BoolClient, ClientConfig, FeatureFlag } from './types';
 /**
  * Method for initialising the SDK client. Once initialised, it will return methods
  * to retrieve all feature flags, or the value of a single feature
- * @param {ClientConfig}- unique id for your application
+ * @param {ClientConfig}- unique id token for your application
  * @returns {BoolClient} - hasFeature, getFeatures
  * @example
- * const bool = init({ appId: '1337-k1tt3n-4prez' });
+ * const bool = init({ idToken: '1337-k1tt3n-4prez' });
  */
-export const init = ({ appId }: ClientConfig): BoolClient => {
+export const init = ({ idToken }: ClientConfig): BoolClient => {
   return {
     /**
      * Method for retrieving the value of a single feature flag
@@ -20,13 +20,13 @@ export const init = ({ appId }: ClientConfig): BoolClient => {
      * const isFooEnabled = await bool.hasFeature('FOO');
      */
     hasFeature: (featureName: string): Promise<boolean> =>
-      hasFeature(appId, featureName),
+      hasFeature(idToken, featureName),
     /**
      * Method for fetching a list of all features
      * @returns {Promise<FeatureFlag[]>} - list of all feature flags, each containing data
      * @example
      * const myFeatures = await bool.getFeatures();
      */
-    getFeatures: (): Promise<FeatureFlag[]> => getFeatures(appId),
+    getFeatures: (): Promise<FeatureFlag[]> => getFeatures(idToken),
   };
 };

@@ -4,7 +4,7 @@ const URL = 'https://api.usebool.com/v1/graphql';
 
 export const GET_FEATURE_FLAGS_QUERY = `
 query GetFeatureFlags {
-  Bool_FeatureFlag(where: {order_by: {name: asc}) {
+  Bool_FeatureFlag {
     id
     key
     name

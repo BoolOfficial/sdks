@@ -1,6 +1,6 @@
 {
   "name": "@usebool/sdk-js",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "description": "Core JS SDK for Bool feature flag system",
   "main": "./lib/index.js",

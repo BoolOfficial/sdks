@@ -2,11 +2,15 @@ import bool from '@usebool/sdk-js';
 import { useStore } from './useStore.js';
 
 export const init = async ({ idToken }: { idToken: string }) => {
-  const { setFlags } = useStore();
+  const { setFlags, setClient, setStatus } = useStore();
 
-  const featureFlags = bool({ idToken });
+  const _client = bool({ idToken });
 
-  const localFlags = await featureFlags.getFeatures();
+  setClient(_client);
+
+  setStatus('loading');
+  const localFlags = await _client.getFeatures();
+  setStatus('success');
 
   setFlags(localFlags);
 };

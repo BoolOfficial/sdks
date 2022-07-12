@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Vue SDK for Bool feature flag system",
   "exports": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "files": [
     "lib"
   ],

@@ -1,14 +1,15 @@
 import { useStore } from './useStore.js';
 
 export const useGetFeatures = () => {
-  const { flags } = useStore();
+  const { flags, status, client } = useStore();
 
-  if (!flags.value.length) {
+  if (!client.value) {
+    console.error('Bool was used before it was initialised.');
+  } else if (!flags.value.length && status.value === 'success') {
     console.error(
       "Something went wrong. It seems you don't have any feature flags.",
     );
-    return [];
   }
 
-  return flags.value;
+  return flags;
 };

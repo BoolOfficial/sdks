@@ -18,6 +18,21 @@ on:
         required: true
         type: boolean
         default: false
+      version_major:
+        description: Bump major version
+        required: true
+        type: boolean
+        default: false
+      version_minor:
+        description: Bump minor version
+        required: true
+        type: boolean
+        default: false
+      version_patch:
+        description: Bump patch version
+        required: true
+        type: boolean
+        default: true
 
 jobs:
   publish:
@@ -41,21 +56,45 @@ jobs:
         run: pnpm install
 
       # Bump JS SDK
-      - name: Bump package version for JS SDK
+      - name: Bump package major version for JS SDK
+        run: pnpm version major
+        if: ${{ inputs.publish_js_sdk && inputs.version_major }}
+        working-directory: ./packages/core-js
+      - name: Bump package monor version for JS SDK
+        run: pnpm version minor
+        if: ${{ inputs.publish_js_sdk && inputs.version_minor }}
+        working-directory: ./packages/core-js
+      - name: Bump package patch version for JS SDK
         run: pnpm version patch
-        if: ${{ inputs.publish_js_sdk }}
+        if: ${{ inputs.publish_js_sdk && inputs.version_patch }}
         working-directory: ./packages/core-js
 
       # Bump React SDK
-      - name: Bump package version for React SDK
+      - name: Bump package major version for React SDK
+        run: pnpm version major
+        if: ${{ inputs.publish_react_sdk && inputs.version_major }}
+        working-directory: ./packages/react
+      - name: Bump package minor version for React SDK
+        run: pnpm version minor
+        if: ${{ inputs.publish_react_sdk && inputs.version_minor }}
+        working-directory: ./packages/react
+      - name: Bump package patch version for React SDK
         run: pnpm version patch
-        if: ${{ inputs.publish_react_sdk }}
+        if: ${{ inputs.publish_react_sdk && inputs.version_patch }}
         working-directory: ./packages/react
 
       # Bump Vue SDK
-      - name: Bump package version for Vue SDK
+      - name: Bump package major version for Vue SDK
+        run: pnpm version major
+        if: ${{ inputs.publish_vue_sdk && inputs.version_major }}
+        working-directory: ./packages/vue
+      - name: Bump package minor version for Vue SDK
+        run: pnpm version minor
+        if: ${{ inputs.publish_vue_sdk && inputs.version_minor }}
+        working-directory: ./packages/vue
+      - name: Bump package patch version for Vue SDK
         run: pnpm version patch
-        if: ${{ inputs.publish_vue_sdk }}
+        if: ${{ inputs.publish_vue_sdk && inputs.version_patch }}
         working-directory: ./packages/vue
 
       - uses: stefanzweifel/git-auto-commit-action@v4

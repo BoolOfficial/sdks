@@ -2,10 +2,30 @@ name: publish
 # Events configuration
 on:
   workflow_dispatch:
+    inputs:
+      publish_js_sdk:
+        description: Publish JS SDK
+        required: true
+        type: boolean
+        default: false
+      publish_react_sdk:
+        description: Publish React SDK
+        required: true
+        type: boolean
+        default: false
+      publish_vue_sdk:
+        description: Publish Vue SDK
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [16.x]
+
     steps:
       - uses: actions/checkout@v3
       - name: Install pnpm
@@ -17,8 +37,52 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org/'
           cache: 'pnpm'
-      - run: pnpm install
-      - run: pnpm run build:all
-      - run: pnpm -r publish --no-git-checks
+      - name: PNPM install
+        run: pnpm install
+
+      # Bump JS SDK
+      - name: Bump package version for JS SDK
+        run: pnpm version patch
+        if: ${{ inputs.publish_js_sdk }}
+        working-directory: ./packages/core-js
+
+      # Bump React SDK
+      - name: Bump package version for React SDK
+        run: pnpm version patch
+        if: ${{ inputs.publish_react_sdk }}
+        working-directory: ./packages/react
+
+      # Bump Vue SDK
+      - name: Bump package version for Vue SDK
+        run: pnpm version patch
+        if: ${{ inputs.publish_vue_sdk }}
+        working-directory: ./packages/vue
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated version bump
+          commit_options: '--no-verify'
+
+      - name: Build applications
+        run: pnpm run build:all
+
+      # Publish JS SDK
+      - run: pnpm publish --no-git-checks
+        if: ${{ inputs.publish_js_sdk }}
+        working-directory: ./packages/core-js
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+      # Publish React SDK
+      - run: pnpm publish --no-git-checks
+        if: ${{ inputs.publish_react_sdk }}
+        working-directory: ./packages/react
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+      # Publish Vue SDK
+      - run: pnpm publish --no-git-checks
+        if: ${{ inputs.publish_vue_sdk }}
+        working-directory: ./packages/vue
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

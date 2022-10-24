@@ -7,11 +7,15 @@ Bool - Vue SDK
 </h1>
 <br />
 
+[![npm](https://img.shields.io/npm/v/@usebool/sdk-vue)](https://www.npmjs.com/package/@usebool/sdk-vue)
+[![npm](https://img.shields.io/npm/dw/@usebool/sdk-vue)](https://www.npmtrends.com/@usebool/sdk-vue)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@usebool/sdk-vue)](https://bundlephobia.com/result?p=@usebool/sdk-vue)
+
 [Bool](https://usebool.com/) provides simple and powerful feature management tools, giving you total control of your feature rollout. Test in production, ship code faster, simpler, safer and smarter.
 
 ## Introduction
 
-This package is our Vue (JavaScript) SDK. This is intended for specific usage within Vue applications. It is build upon our core [JavaScript SDK](https://github.com/BoolOfficial/sdk-js).
+This package is our Vue (JavaScript) SDK. This is intended for specific usage within Vue applications. It is build upon our core [JavaScript SDK](https://github.com/BoolOfficial/sdks/tree/main/packages/core-js).
 
 ## Getting started
 

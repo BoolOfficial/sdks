@@ -11,4 +11,6 @@ Bool - JavaScript SDK
 
 This is a monorepo containing all SDKs for accessing your favourite feature flag system.
 
-## Development commands
+## [JS SDK](https://github.com/BoolOfficial/sdks/tree/main/packages/core-js)
+## [React SDK](https://github.com/BoolOfficial/sdks/tree/main/packages/react)
+## [Vue SDK](https://github.com/BoolOfficial/sdks/tree/main/packages/vue)

@@ -7,11 +7,15 @@ Bool - JavaScript SDK
 </h1>
 <br />
 
+[![npm](https://img.shields.io/npm/v/@usebool/sdk-js)](https://www.npmjs.com/package/@usebool/sdk-js)
+[![npm](https://img.shields.io/npm/dw/@usebool/sdk-js)](https://www.npmtrends.com/@usebool/sdk-js)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@usebool/sdk-js)](https://bundlephobia.com/result?p=@usebool/sdk-js)
+
 [Bool](https://usebool.com/) provides simple and powerful feature management tools, giving you total control of your feature rollout. Test in production, ship code faster, simpler, safer and smarter.
 
 ## Introduction
 
-This package is our main client-side (JavaScript) SDK. It can be used directly for any JavaScript application or NodeJs server-side application. This also serves as a core package for the more specialized SDKs - for instance the [React SDK](https://github.com/BoolOfficial/sdk-react).
+This package is our main client-side (JavaScript) SDK. It can be used directly for any JavaScript application or NodeJs server-side application. This also serves as a core package for the more specialized SDKs - for instance the [React SDK](https://github.com/BoolOfficial/sdks/tree/main/packages/react).
 
 ## Getting started
 

@@ -7,11 +7,15 @@ Bool - React SDK
 </h1>
 <br />
 
+[![npm](https://img.shields.io/npm/v/@usebool/sdk-react)](https://www.npmjs.com/package/@usebool/sdk-react)
+[![npm](https://img.shields.io/npm/dw/@usebool/sdk-react)](https://www.npmtrends.com/@usebool/sdk-react)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@usebool/sdk-react)](https://bundlephobia.com/result?p=@usebool/sdk-react)
+
 [Bool](https://usebool.com/) provides simple and powerful feature management tools, giving you total control of your feature rollout. Test in production, ship code faster, simpler, safer and smarter.
 
 ## Introduction
 
-This package is our React (JavaScript) SDK. This is intended for specific usage within React applications. It is build upon our core [JavaScript SDK](https://github.com/BoolOfficial/sdk-js).
+This package is our React (JavaScript) SDK. This is intended for specific usage within React applications. It is build upon our core [JavaScript SDK](https://github.com/BoolOfficial/sdks/tree/main/packages/core-js).
 
 ## Getting started
 
